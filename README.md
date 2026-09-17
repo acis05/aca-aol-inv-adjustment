@@ -38,3 +38,18 @@ Baris dengan `NUMBER` yang sama digabung menjadi satu Inventory Adjustment denga
 4. Jalankan: `python app.py`
 
 Template Excel siap pakai tersedia di `template-inventory-adjustment.xlsx` atau melalui tombol **Download Template** di aplikasi.
+
+## Deployment entrypoint
+
+For platforms that default to `gunicorn main:app`, this package includes `main.py` as a compatibility entrypoint.
+Recommended start command:
+
+```bash
+gunicorn main:app --bind 0.0.0.0:$PORT
+```
+
+Equivalent direct entrypoint:
+
+```bash
+gunicorn app:app --bind 0.0.0.0:$PORT
+```
